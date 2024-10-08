@@ -8,7 +8,7 @@ export default function History() {
   const senderId = localStorage.getItem("userId");
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetch = async () => {
       setLoading(true);
@@ -29,9 +29,13 @@ export default function History() {
     fetch();
   }, [token]);
 
+  const send = () =>{
+    navigate('/home');
+  }
   return (
     <>
       <div className="bg-white h-auto w-screen flex flex-col items-center overflow-y-scroll">
+        <div className=" w-full text-right"><button onClick={send} className="bg-black hover:bg-red-500 transition-all rounded-md text-white p-2 m-2">Back</button></div>
         {loading ? (
           <Loader />
         ) : (
@@ -40,29 +44,31 @@ export default function History() {
               (data) => data.sender === senderId || data.receiver === senderId
             )
             .map((data) => (
+             
               <div
                 key={data.id} // Ensure this is in the parent div to avoid duplicate keys
-                className="w-1/2 h-[80px] bg-blue-950 m-2 flex items-center justify-evenly rounded-md "
+                className="md:w-1/2 w-full h-[80px]  bg-blue-950 m-2 flex items-center justify-evenly rounded-md "
               >
                 {data.sender === senderId ? (
-                  <div className="text-xl text-white">
+                  <div className="md:text-xl  text-white">
                     Sent to: {data.receiver} {/* Show receiver information */}
                   </div>
                 ) : (
-                  <div className="text-xl text-white">
+                  <div className="md:text-xl text-white">
                     Received from: {data.sender} {/* Show sender information */}
                   </div>
                 )}
                 <div
                   className={
                     data.sender === senderId
-                      ? "text-red-500 text-xl font-semibold" // Red if the user is the sender
-                      : "text-green-500 text-xl font-semibold" // Green if the user is the receiver
+                      ? "text-red-500 md:text-xl font-semibold" // Red if the user is the sender
+                      : "text-green-500 md:text-xl font-semibold" // Green if the user is the receiver
                   }
                 >
                   {data.amount} {/* Display the transaction amount */}
                 </div>
               </div>
+        
             ))
         )}
       </div>

@@ -73,7 +73,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="bg-black h-screen">
       {/* Header */}
       <div className="w-screen h-[10vh] bg-black flex justify-between">
         <div className="text-white font-bold text-4xl flex items-center pl-5">Payfree</div>
@@ -85,23 +85,23 @@ export default function Home() {
       </div>
 
       {/* Dashboard */}
-      <div className="w-screen h-[50vh] bg-black pl-10">
+      <div className="w-screen h-[50vh] bg-black md:pl-10 pl-5">
         <h2 className="text-white text-4xl font-semibold">Dashboard</h2>
-        <div className="w-[500px] h-[300px] bg-blue-400 flex justify-center items-center rounded-xl shadow-inner shadow-gray-600">
+        <div className="md:w-[500px] w-4/5 md:h-[300px] h-2/4 bg-blue-400 flex justify-center items-center rounded-xl shadow-inner shadow-gray-600">
           <div className="w-4/5 h-2/3">
-            <h2 className="text-6xl font-bold">Amount</h2>
-            <h2 className="text-5xl font-bold">Balance: {availableBalance}</h2>
+            <h2 className="md:text-6xl text-3xl font-bold">Amount</h2>
+            <h2 className="md:text-5xl text-2xl font-bold">Balance: {availableBalance}</h2>
           </div>
         </div>
       </div>
 
       {/* Image and Send Section */}
-      <div className="h-[40vh] bg-black flex">
-        <div className="h-2/3 w-1/4 flex flex-col justify-center items-center">
+      <div className="md:h-[40vh] bg-black flex">
+        <div className="h-2/3 md:w-1/4 flex flex-col justify-center items-center">
           <img src={Money}  alt="money" className="h-full w-1/2 rounded-full cursor-pointer" onClick={send} />
           <p className="text-white text-xl font-semibold cursor-pointer">Send</p>
         </div>
-        <div className="h-2/3 w-1/4 flex flex-col justify-center items-center">
+        <div className="h-2/3 md:w-1/4 flex flex-col justify-center items-center">
           <img src={Money}  alt="money" className="h-full w-1/2 rounded-full cursor-pointer" onClick={history} />
           <p className="text-white text-xl font-semibold cursor-pointer">History</p>
         </div>

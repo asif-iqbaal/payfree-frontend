@@ -80,13 +80,13 @@ export default function Transaction() {
 
     return (
         <div className="bg-white flex justify-center items-center h-screen w-screen">
-            <div className="w-1/3 h-2/3 bg-blue-950 flex items-center flex-col">
-                <h2 className="text-white text-3xl font-semibold p-3">Transaction</h2>
+            <div className="md:w-1/3 md:h-2/3 h-full w-full bg-blue-950 flex items-center flex-col">
+                <h2 className="text-white text-3xl   font-semibold p-3">Transaction</h2>
                 <form onSubmit={transaction} className="flex flex-col w-4/5">
                     <label htmlFor="receiverUsername" className="md:text-2xl m-3 text-white">Receiver Name</label>
                     <input
                         id="receiverUsername"
-                        className="md:p-4 text-lg"
+                        className="md:p-4 px-2 text-lg"
                         name="receiverUsername"
                         type="text"
                         required
@@ -98,7 +98,7 @@ export default function Transaction() {
                     <label htmlFor="amount" className="md:text-2xl m-3 text-white">Amount</label>
                     <input
                         id="amount"
-                        className="md:p-4 text-lg"
+                        className="md:p-4  px-2 text-lg"
                         name="amount"
                         type="number"
                         required

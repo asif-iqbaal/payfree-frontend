@@ -37,7 +37,7 @@ export default function  Login(){
         <>
        {loading? <Loader /> :
         <div className="w-screen h-screen flex">
-          <div className="w-1/3 h-screen bg-[#0e559b] flex justify-center shadow-lg ">
+          <div className="md:w-1/3 h-screen bg-[#0e559b] flex justify-center shadow-lg ">
             <div className="w-4/5 h-1/2 flex flex-col justify-center items-center  text-white rounded-md ">
               <h2 className="font-bold text-3xl p-2">SIGN IN</h2>
               <form onSubmit={handleSubmit} className="flex flex-col  w-3/4">
@@ -70,7 +70,7 @@ export default function  Login(){
             </div>
           </div>
 
-          <div className="w-2/3 overflow-hidden">
+          <div className="md:w-2/3 w-0 overflow-hidden">
           <img src={Image} alt="image" className="w-full" />
           </div>
         </div>}
