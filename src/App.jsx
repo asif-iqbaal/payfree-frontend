@@ -21,7 +21,7 @@ function App() {
     <>
      <Router>
       <div className="app-container">
-       {user && <Navigation />}
+       { user && <Navigation />}
         <div className="content-container">
           <Routes>
             <Route path='/' element={<Landing />} />

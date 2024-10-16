@@ -15,7 +15,7 @@ export default function Navigation() {
       localStorage.removeItem("token");
       localStorage.removeItem("balance");
       localStorage.removeItem("userId");
-      location.reload();
+       location.reload();
       navigate("/signin");
     }, 1000);
   };
