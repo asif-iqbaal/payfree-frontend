@@ -9,9 +9,11 @@ import SearchUser from './components/searchUser';
 import Transaction from './components/transaction';
 import History from './components/history';
 import Navigation from './components/navigation';
+
 import './App.css';
 function App() {
   const [user,setUser] = useState(null);
+ 
    useEffect(()=>{
     const user = localStorage.getItem("token");
     setUser(user);
@@ -21,9 +23,11 @@ function App() {
     <>
      <Router>
       <div className="app-container">
-       { user && <Navigation />}
+      { user && <Navigation />}
         <div className="content-container">
+       
           <Routes>
+          
             <Route path='/' element={<Landing />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<Login />} />
