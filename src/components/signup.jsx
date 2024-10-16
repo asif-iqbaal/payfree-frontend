@@ -40,43 +40,47 @@ export default function  SignUp(){
 
     return(
         <>
-      { loading? <Loader /> : <div className="w-screen h-screen flex">
-          <div className="md:w-1/3 h-screen bg-[#0e559b] flex justify-center shadow-lg">
-            <div className="w-4/5 h-1/2 flex flex-col justify-center items-center  text-white rounded-md ">
-              <h2 className="font-bold text-3xl p-2">SIGN UP</h2>
+      { loading? <Loader /> :
+       <div className="w-screen h-screen flex flex-col justify-center items-center bg-gradient-to-t from-orange-400 via-orange-100 to-white">
+         <div className="w-screen h-[10vh] bg-transparent flex justify-between">
+        <div className="text-black font-bold md:text-4xl text-3xl flex items-center pl-5">Payfree</div>
+       </div>
+        <div className="md:w-2/3 h-[90vh] bg-transparent flex justify-center items-center">
+            <div className="md:w-2/4  flex flex-col justify-center items-center  text-white rounded-md ">
+              <h2 className="font-semibold md:text-4xl text-xl p-2 text-black">Create a new account</h2>
               <form onSubmit={handleSubmit} className="flex flex-col  w-3/4">
                 <label htmlFor="username" 
-                className="text-2xl p-1"
-                >Username</label>
+                className="md:text-xl text-black p-1"
+                >username</label>
                 <input 
                 type="text"
                 name="username"
                 value={username} 
-                className="text-xl w-full p-1 rounded-sm text-black "
+                className="text-xl w-full md:p-2 text-black  border-4 rounded-xl focus:border-orange-400 focus:outline-none focus:ring-2 "
                 onChange={onChange}
                 required/>
                  <label htmlFor="username" 
-                className="text-2xl p-1"
-                >Password</label>
+                className="md:text-xl text-black p-1"
+                >password</label>
                 <input 
                 type="text"
                 name="password"
                 value={password} 
-                className="text-xl p-1 rounded-sm text-black"
+                className="text-xl w-full md:p-2 text-black  border-4 rounded-xl focus:border-orange-400 focus:outline-none focus:ring-2"
                 onChange={onChange}
                 required/>
-                <button className="bg-blue-900 p-2 mt-3 text-lg rounded-full hover:bg-blue-950">
+                <button className="bg-blue-900 md:p-2 p-1 mt-10 text-lg rounded-xl hover:bg-blue-950">
                   Sign up
                 </button>
               </form>
-              <p className="p-1 m-1 font-sans">connect with our network and make transfer money easy</p>
-              <p className="font-sans">if you already have an account <Link to="/signin" className="text-red-500 hover:bg-blue-950">Signin</Link></p>
+              <p className="p-2 m-1 font-sans text-sm text-black">connect with our network and make transfer money easy</p>
+              <p className="font-sans text-black text-sm md:text-lg">if you already have an account <Link to="/signin" className="text-orange-700 hover:bg-blue-950">Signin</Link></p>
             </div>
           </div>
 
-          <div className="md:w-2/3 w-0 overflow-hidden">
+          {/* <div className="md:w-2/3 w-0 overflow-hidden">
           <img src={Image} alt="image" className="w-full" />
-          </div>
+          </div> */}
         </div>}
         </>
     )

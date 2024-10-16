@@ -1,0 +1,15 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.navigation {
+  width: 10%; /* This ensures the navigation takes up 10% of the width */
+  background-color: #f4f4f4; /* Optional: add a background color to distinguish */
+}
+
+.content-container {
+  width: 90%; /* This ensures the content takes up the remaining 90% */
+  
+  height: auto /* Optional: add some padding for spacing */
+}

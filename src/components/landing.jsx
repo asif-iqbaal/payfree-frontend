@@ -1,10 +1,16 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "./loader";
 
 export default function Landing(){
     const [loading,setLoading] = useState(false);
+    const user = localStorage.getItem("token");
     const navigate = useNavigate();
+    useEffect(() => {
+      if(user){
+        navigate('/home');
+      }
+    })
     const navi = ()=>{
         setLoading(true);
         setTimeout(()=>{

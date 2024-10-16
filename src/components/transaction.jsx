@@ -79,56 +79,57 @@ export default function Transaction() {
     }
 
     return (
-        <div className="bg-white flex justify-center items-center h-screen w-screen">
-            <div className="md:w-1/3 md:h-2/3 h-full w-full bg-blue-950 flex items-center flex-col">
-                <h2 className="text-white text-3xl   font-semibold p-3">Transaction</h2>
-                <form onSubmit={transaction} className="flex flex-col w-4/5">
-                    <label htmlFor="receiverUsername" className="md:text-2xl m-3 text-white">Receiver Name</label>
-                    <input
-                        id="receiverUsername"
-                        className="md:p-4 px-2 text-lg"
-                        name="receiverUsername"
-                        type="text"
-                        required
-                        value={formData.receiverUsername}
-                        onChange={onChange}
-                        readOnly // Optional: Make it read-only if receiver is predefined
-                    />
-
-                    <label htmlFor="amount" className="md:text-2xl m-3 text-white">Amount</label>
-                    <input
-                        id="amount"
-                        className="md:p-4  px-2 text-lg"
-                        name="amount"
-                        type="number"
-                        required
-                        value={formData.amount}
-                        onChange={onChange}
-                        placeholder="Amount"
-                        min="1"
-                        step="0.01"
-                    />
-
-                    <label htmlFor="description" className="md:text-2xl m-3 text-white">Description</label>
-                    <textarea
-                        id="description"
-                        className="h-28 p-4 md:text-lg resize-none overflow-y-auto"
-                        name="description"
-                        required
-                        value={formData.description}
-                        onChange={onChange}
-                        placeholder="Description"
-                    />
-
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className={`bg-blue-500 md:w-1/3 md:p-4 p-1 m-2 rounded-lg text-2xl text-white font-semibold ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                        {isSubmitting ? 'Sending...' : 'Send'}
-                    </button>
-                </form>
-            </div>
+        <div className="bg-gray-100 flex justify-center md:ml-[12%]  mt-2 h-[96vh] w-[100%] rounded-md">
+        <div className="md:w-1/3 md:h-auto h-full w-full bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 shadow-lg flex items-center flex-col rounded-lg">
+          <h2 className="text-white text-4xl font-bold p-5">Transaction</h2>
+          <form onSubmit={transaction} className="flex flex-col md:w-4/5  space-y-6">
+            <label htmlFor="receiverUsername" className="md:text-2xl m-3 text-white tracking-wide">Receiver Name</label>
+            <input
+              id="receiverUsername"
+              className="md:p-4 px-2 py-3 text-lg rounded-lg shadow-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition duration-200"
+              name="receiverUsername"
+              type="text"
+              required
+              value={formData.receiverUsername}
+              onChange={onChange}
+              readOnly
+            />
+      
+            <label htmlFor="amount" className="md:text-2xl m-3 text-white tracking-wide">Amount</label>
+            <input
+              id="amount"
+              className="md:p-4 px-2 py-3 text-lg rounded-lg shadow-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition duration-200"
+              name="amount"
+              type="number"
+              required
+              value={formData.amount}
+              onChange={onChange}
+              placeholder="Amount"
+              min="1"
+              step="0.01"
+            />
+      
+            <label htmlFor="description" className="md:text-2xl m-3 text-white tracking-wide">Description</label>
+            <textarea
+              id="description"
+              className="h-28 p-4 md:text-lg rounded-lg shadow-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition duration-200 resize-none overflow-y-auto"
+              name="description"
+              required
+              value={formData.description}
+              onChange={onChange}
+              placeholder="Description"
+            />
+      
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 md:w-1/3 md:p-4 p-2 m-2 rounded-lg text-2xl text-white font-semibold shadow-md transition duration-200 transform hover:scale-105 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+              {isSubmitting ? 'Sending...' : 'Send'}
+            </button>
+          </form>
         </div>
+      </div>
+      
         
     );
 }

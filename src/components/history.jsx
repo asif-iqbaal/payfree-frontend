@@ -34,44 +34,45 @@ export default function History() {
   }
   return (
     <>
-      <div className="bg-white h-auto w-screen flex flex-col items-center overflow-y-scroll">
-        <div className=" w-full text-right"><button onClick={send} className="bg-black hover:bg-red-500 transition-all rounded-md text-white p-2 m-2">Back</button></div>
-        {loading ? (
-          <Loader />
-        ) : (
-          transactions
-            .filter(
-              (data) => data.sender === senderId || data.receiver === senderId
-            )
-            .map((data) => (
-             
-              <div
-                key={data.id} // Ensure this is in the parent div to avoid duplicate keys
-                className="md:w-1/2 w-full h-[80px]  bg-blue-950 m-2 flex items-center justify-evenly rounded-md "
-              >
-                {data.sender === senderId ? (
-                  <div className="md:text-xl  text-white">
-                    Sent to: {data.receiver} {/* Show receiver information */}
-                  </div>
-                ) : (
-                  <div className="md:text-xl text-white">
-                    Received from: {data.sender} {/* Show sender information */}
-                  </div>
-                )}
-                <div
-                  className={
-                    data.sender === senderId
-                      ? "text-red-500 md:text-xl font-semibold" // Red if the user is the sender
-                      : "text-green-500 md:text-xl font-semibold" // Green if the user is the receiver
-                  }
-                >
-                  {data.amount} {/* Display the transaction amount */}
-                </div>
-              </div>
-        
-            ))
-        )}
-      </div>
+     <div className="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen w-screen flex flex-col items-center overflow-y-auto px-8 pl-12 py-6 md:px-8 rounded-lg">
+  <div className="w-full md:w-3/4 text-3xl font-bold tracking-tight text-gray-800 mb-6">
+    Transactions History
+  </div>
+  {loading ? (
+    <Loader />
+  ) : (
+    transactions
+      .filter(
+        (data) => data.sender === senderId || data.receiver === senderId
+      )
+      .map((data) => (
+        <div
+          key={data.id}
+          className="w-full md:w-3/4 h-[100px] bg-white shadow-md rounded-lg flex items-center justify-between p-4 mb-4 transition-transform transform hover:scale-105 hover:shadow-lg"
+        >
+          {data.sender === senderId ? (
+            <div className="text-sm md:text-xl text-gray-600">
+              Sent to: <span className="font-medium text-gray-800">{data.receiver}</span>
+            </div>
+          ) : (
+            <div className="text-sm md:text-xl text-gray-600">
+              Received from: <span className="font-medium text-gray-800">{data.sender}</span>
+            </div>
+          )}
+          <div
+            className={
+              data.sender === senderId
+                ? "text-red-500 text-sm md:text-xl font-semibold"
+                : "text-green-500 text-sm md:text-xl font-semibold"
+            }
+          >
+            ₹{data.amount.toLocaleString()} {/* Formatting the amount */}
+          </div>
+        </div>
+      ))
+  )}
+</div>
+
     </>
   );
 }

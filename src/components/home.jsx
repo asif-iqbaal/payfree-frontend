@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
 import Loader from "./loader";
 import axios from './axios.js';
-import Money from './money.jpg';
-
+import Graph from "./chart.jsx";
 export default function Home() {
-  const [loading, setLoading] = useState(true); // Show loader initially
-  const [userData, setUserData] = useState(null); // To store user data
+  const [loading, setLoading] = useState(true); 
+  const [userData, setUserData] = useState(null);
+ 
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -50,6 +50,7 @@ export default function Home() {
     searchUser();
   }, [userData]);
 
+ 
   const availableBalance = localStorage.getItem("balance");
  
   const send = () => {
@@ -73,40 +74,38 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-black h-screen">
-      {/* Header */}
-      <div className="w-screen h-[10vh] bg-black flex justify-between">
-        <div className="text-white font-bold text-4xl flex items-center pl-5">Payfree</div>
-        <div className="w-[200px] bg-black flex justify-center items-center">
-          <button onClick={logout} className="text-white bg-red-500 p-4 m-2 w-1/2 rounded-full">
-            Logout
-          </button>
-        </div>
-      </div>
+   <>
+   <div className="w-[100%]  flex flex-col  ml-[12%] md:h-auto h-screen bg-gray-100">
+   
+   <div className="w-full flex  md:[100vh]">
+   
+    <div className="bg-gray-100 w-[100%]  h-full rounded-lg p-2">
+      <div className="text-2xl font-semibold">Welcome {userData.username} !</div>
+      <div className="w-full h-full mx-5 mt-5 bg-gray-100 rounded-xl p-5 ">
+        <div className="flex justify-between md:h-2/3">
+        {/* <div className="bg-gradient-to-r from-purple-500 to-indigo-500 w-[30%] h-2/3 p-6 text-lg rounded-xl shadow-lg flex flex-col justify-center text-white">
+  <p className="p-3 font-semibold">Username: <span className="font-normal">{userData.username}</span></p>
+  <p className="p-3 font-semibold">UserID: <span className="font-normal">{userData.id}</span></p>
+  <p className="p-3 font-semibold">Balance: <span className="font-normal">{availableBalance}</span></p>
+</div> */}
 
-      {/* Dashboard */}
-      <div className="w-screen h-[50vh] bg-black md:pl-10 pl-5">
-        <h2 className="text-white text-4xl font-semibold">Dashboard</h2>
-        <div className="md:w-[500px] w-4/5 md:h-[300px] h-2/4 bg-blue-400 flex justify-center items-center rounded-xl shadow-inner shadow-gray-600">
-          <div className="w-4/5 h-2/3">
-            <h2 className="md:text-6xl text-3xl font-bold">Amount</h2>
-            <h2 className="md:text-5xl text-2xl font-bold">Balance: {availableBalance}</h2>
-          </div>
-        </div>
-      </div>
-
-      {/* Image and Send Section */}
-      <div className="md:h-[40vh] bg-black flex">
-        <div className="h-2/3 md:w-1/4 flex flex-col justify-center items-center">
-          <img src={Money}  alt="money" className="h-full w-1/2 rounded-full cursor-pointer" onClick={send} />
-          <p className="text-white text-xl font-semibold cursor-pointer">Send</p>
-        </div>
-        <div className="h-2/3 md:w-1/4 flex flex-col justify-center items-center">
-          <img src={Money}  alt="money" className="h-full w-1/2 rounded-full cursor-pointer" onClick={history} />
-          <p className="text-white text-xl font-semibold cursor-pointer">History</p>
+<div className="flex justify-between flex-col bg-gradient-to-r from-orange-400 via-orange-200 to-orange-200 w-[100%] md:h-44  p-6 text-lg rounded-xl shadow-xl  mr-10">
+  <p className="text-sm font-medium text-gray-800">ID {userData.id}</p>
+  <p className="text-center font-extrabold text-6xl tracking-tight text-gray-900">Payfree</p>
+  <i className="text-right font-semibold text-gray-700">VISA</i>
+</div>
+</div>
+        {/*    Recent Transacctions*/}
+        <div className="flex justify-between flex-col md:h-1/3 h-auto
+          bg-gradient-to-r from-gray-100 via-orange-50 to-white w-[100%]  p-2 text-lg rounded-xl mr-3">
+            <p className="text-xl font-semibold p-2">Recent Transactions</p>
+            <Graph />
         </div>
       </div>
       
     </div>
+   </div>
+   </div>
+   </>
   );
 }
