@@ -26,7 +26,7 @@ export default function Landing(){
         <div className="md:text-9xl text-3xl font-bold tracking-tighter text-white ">PAYFREE</div>
         <div className="mt-3 ">
             <button onClick={navi} className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500
-                                px-4 py-2 rounded-lg w-full md:text-5xl font-semibold text-white">JOIN</button>
+                                px-4 py-2 rounded-lg w-full md:text-5xl font-semibold text-white">Get started</button>
         </div>
         </div>
         <div className="md:w-1/2 md:h-screen m-5 md:m-0 flex justify-center items-center">
