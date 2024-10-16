@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "routes": [
     { "src": "^/$", "dest": "/index.html" },
     { "src": "^/signup$", "dest": "/index.html" },
@@ -8,5 +9,9 @@
     { "src": "^/transaction$", "dest": "/index.html" },
     { "src": "^/history$", "dest": "/index.html" },
     { "src": "/(.*)", "dest": "/index.html" }  
+=======
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+>>>>>>> d5e304c340118ee34c2fbf3765df60bcd5ad1298
   ]
 }
