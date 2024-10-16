@@ -31,6 +31,7 @@ export default function  SignUp(){
         setTimeout(()=>{
         setLoading(false);
         navigate('/home'); 
+        location.reload();
         },1500)
       } catch (error) {
         toast.error("something issue in you details");
