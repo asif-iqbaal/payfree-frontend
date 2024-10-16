@@ -1,13 +1,13 @@
 {
 
   "routes": [
-    { "src": "^/$", "dest": "/index.html" },
-    { "src": "^/signup$", "dest": "/index.html" },
-    { "src": "^/signin$", "dest": "/index.html" },
-    { "src": "^/home$", "dest": "/index.html" },
-    { "src": "^/search$", "dest": "/index.html" },
-    { "src": "^/transaction$", "dest": "/index.html" },
-    { "src": "^/history$", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/index.html" }  
+    { "src": "/", "dest": "/" },
+    { "src": "/signup", "dest": "/" },
+    { "src": "/signin", "dest": "/" },
+    { "src": "^/home", "dest": "/" },
+    { "src": "^/search", "dest": "/" },
+    { "src": "^/transaction", "dest": "/" },
+    { "src": "/history", "dest": "/" },
+    { "src": "/(.*)", "dest": "/" }  
   ]
 }
