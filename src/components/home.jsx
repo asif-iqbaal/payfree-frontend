@@ -28,7 +28,7 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error decoding token:", error);
-      navigate("/signin"); // Redirect if token is invalid
+      navigate("/signin");
     }
   
   }, [navigate]);

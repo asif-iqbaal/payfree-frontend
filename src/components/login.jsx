@@ -20,15 +20,16 @@ export default function  Login(){
         console.log(res);
         console.log(res.data.token);
         const token = res.data.token;
-        localStorage.setItem("token",token);
-        toast.success("User logined successfully");
-        setLoading(true);
-        setTimeout(()=>{
-        setLoading(false);
-        navigate('/home'); 
-        location.reload();
-        },1500)
-        
+        if(token){
+          toast.success("User login successfully");
+          localStorage.setItem("token",token);
+          setLoading(true);
+          setTimeout(()=>{
+          setLoading(false);
+          navigate('/home'); 
+          location.reload();
+          },1500)
+        }
       } catch (error) {
         toast.error(error);
       }
