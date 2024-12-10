@@ -25,8 +25,6 @@ export default function  SignUp(){
         }else{
           toast.error("user already exist");
         }
-        
-        
         setLoading(true);
         setTimeout(()=>{
         setLoading(false);
